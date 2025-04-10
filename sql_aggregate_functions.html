@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Aggregate Functions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2c2c2c;
+      padding: 30px;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #f39c12;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .code-box {
+      background-color: #1f1f1f;
+      border-left: 5px solid #e67e22;
+      padding: 15px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 10px 0;
+      color: #f5f5f5;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    code {
+      background-color: #3b3b3b;
+      color: #f39c12;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    strong {
+      color: #e67e22;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #444;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>SQL Aggregate Functions</h1>
+    <p>Aggregate functions perform calculations on a set of values and return a single result. They are commonly used with the <code>GROUP BY</code> clause in <code>SELECT</code> statements.</p>
+    <p>Common aggregate functions include:</p>
+    <ul>
+      <li><code>MIN()</code> – Returns the smallest value</li>
+      <li><code>MAX()</code> – Returns the largest value</li>
+      <li><code>COUNT()</code> – Counts matching rows</li>
+      <li><code>SUM()</code> – Adds numeric column values</li>
+      <li><code>AVG()</code> – Calculates average value</li>
+    </ul>
+    <p><strong>Note:</strong> All except <code>COUNT()</code> ignore <code>NULL</code> values.</p>
+  </div>
+
+  <div class="section">
+    <h2>COUNT() Function</h2>
+    <p>Returns the number of rows that match the specified condition.</p>
+    <h3>Syntax</h3>
+    <div class="code-box">
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+    </div>
+    <h3>Example</h3>
+    <p>Find the number of customers:</p>
+    <div class="code-box">
+SELECT COUNT(CustomerID)
+FROM Products;
+    </div>
+    <p><strong>Note:</strong> NULL values are excluded.</p>
+
+    <h3>Output</h3>
+    <div class="code-box">
++-------------------+
+| count(customerID) |
++-------------------+
+|                 6 |
++-------------------+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>AVG() Function</h2>
+    <p>Returns the average value of a numeric column.</p>
+    <h3>Syntax</h3>
+    <div class="code-box">
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+    </div>
+    <h3>Example</h3>
+    <p>Average price of all products:</p>
+    <div class="code-box">
+SELECT AVG(price)
+FROM Products;
+    </div>
+    <h3>Output</h3>
+    <div class="code-box">
++---------------+
+|    AVG(Price) |
++---------------+
+|        50.55  |
++---------------+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>SUM() Function</h2>
+    <p>Returns the total of all values in a numeric column.</p>
+    <h3>Syntax</h3>
+    <div class="code-box">
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+    </div>
+    <h3>Example</h3>
+    <p>Sum of all quantities:</p>
+    <div class="code-box">
+SELECT SUM(Quantity)
+FROM OrderDetails;
+    </div>
+    <h3>Output</h3>
+    <div class="code-box">
++---------------+
+| sum(quantity) |
++---------------+
+|            53 |
++---------------+
+    </div>
+
+    <p>Sum of Quantity for ProductID 11:</p>
+    <div class="code-box">
+SELECT SUM(Quantity)
+FROM OrderDetails
+WHERE ProductID = 11;
+    </div>
+    <h3>Output</h3>
+    <div class="code-box">
++---------------+
+| sum(quantity) |
++---------------+
+|            10 |
++---------------+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>MIN() and MAX() Functions</h2>
+    <p><code>MIN()</code> returns the smallest value, and <code>MAX()</code> returns the largest value from the selected column.</p>
+    <h3>Syntax</h3>
+    <p>MIN:</p>
+    <div class="code-box">
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+    </div>
+    <p>MAX:</p>
+    <div class="code-box">
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+    </div>
+
+    <h3>Example</h3>
+    <p>Lowest quantity:</p>
+    <div class="code-box">
+SELECT MIN(Quantity)
+FROM Products;
+    </div>
+    <h3>Output</h3>
+    <div class="code-box">
++---------------+
+| min(quantity) |
++---------------+
+|             4 |
++---------------+
+    </div>
+
+    <p>Highest quantity:</p>
+    <div class="code-box">
+SELECT MAX(Quantity)
+FROM Products;
+    </div>
+    <h3>Output</h3>
+    <div class="code-box">
++---------------+
+| max(quantity) |
++---------------+
+|            15 |
++---------------+
+    </div>
+  </div>
+
+</body>
+</html>

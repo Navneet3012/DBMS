@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Vansh Garg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      height: 100vh;
+      display: flex;
+      color: #e0e0e0;
+    }
+
+    .left-panel {
+      width: 45%;
+      background: #1e1e2f;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left-panel h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffa502;
+    }
+
+    .left-panel h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: #dcdde1;
+    }
+
+    .left-panel p {
+      font-size: 1rem;
+      margin: 5px 0;
+      color: #c0c0c0;
+    }
+
+    .right-panel {
+      width: 55%;
+      background-color: #181818;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .card {
+      background: #242424;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ffa502;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #bbbbbb;
+      margin-bottom: 10px;
+    }
+
+    .home-button {
+      margin-top: 25px;
+      display: inline-block;
+      background: #ffa502;
+      color: #121212;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .home-button:hover {
+      background: #ffbe33;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left-panel, .right-panel {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .card {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="left-panel">
+    <h1>Navneet</h1>
+    <h2>Student | Developer</h2>
+    <p><strong>Class:</strong> BCA 4th Sem</p>
+    <p><strong>Roll No:</strong> 4002/23</p>
+    <p><strong>Submitted to:</strong> Mr. Chetan Gupta</p>
+  </div>
+
+  <div class="right-panel">
+    <div class="card">
+      <h3>Welcome to My Project</h3>
+      <p>This page is part of a student submission.</p>
+      <p>Explore the main project using the button below.</p>
+      <a href="frame.html" class="home-button">Go to Home</a>
+    </div>
+  </div>
+</body>
+</html>

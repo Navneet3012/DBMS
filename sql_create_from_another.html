@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL CREATE TABLE Using Another Table</title>
+    <style>
+        body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2c2c2c;
+      padding: 30px;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #f39c12;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .code-box {
+      background-color: #1f1f1f;
+      border-left: 5px solid #e67e22;
+      padding: 15px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 10px 0;
+      color: #f5f5f5;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    code {
+      background-color: #3b3b3b;
+      color: #f39c12;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    strong {
+      color: #e67e22;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #444;
+      margin: 30px 0;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h1>Create Table Using Another Table</h1>
+        <p>A copy of an existing table can also be created using <code>CREATE TABLE</code>.</p>
+        <p>The new table gets the same column definitions. All columns or specific columns can be selected.</p>
+        <p>If you create a new table using an existing table, the new table will be filled with the existing values from the old table.</p>
+    </div>
+
+    <div class="section">
+        <h2>Syntax</h2>
+        <pre>
+<div class="code-box">
+CREATE TABLE new_table_name AS
+SELECT column1, column2,...
+FROM existing_table_name
+WHERE ....;
+</div>
+        </pre>
+    </div>
+
+    <div class="section">
+        <p>The following SQL creates a new table called "TestTable" (which is a copy of the "Customers" table):</p>
+    </div>
+
+    <div class="section">
+        <h2>Example</h2>
+        <pre>
+<div class="code-box">
+CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers;
+        </pre>
+    </div>
+    </div>
+    <div class="section">
+        <h2>OUTPUT</h2>
+    </div>
+    <div class="code-box">
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| CustomerName | varchar(255) | YES  |     | NULL    |       |
+| contactName  | varchar(255) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+    </div>
+    
+</body>
+</html>

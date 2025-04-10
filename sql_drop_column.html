@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL DROP COLUMN Keyword</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2c2c2c;
+      padding: 30px;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #f39c12;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .code-box {
+      background-color: #1f1f1f;
+      border-left: 5px solid #e67e22;
+      padding: 15px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 10px 0;
+      color: #f5f5f5;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    code {
+      background-color: #3b3b3b;
+      color: #f39c12;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    strong {
+      color: #e67e22;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #444;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>SQL DROP COLUMN Keyword</h1>
+    <p>The <strong>DROP COLUMN</strong> command is used to delete a column in an existing table.</p>
+  </div>
+
+  <div class="section">
+    <h2>Syntax</h2>
+    <div class="code-box">
+ALTER TABLE table_name
+DROP COLUMN column_name;
+    </div>
+    <p><strong>Note:</strong> Some database systems do not allow deleting a column.</p>
+  </div>
+
+  <div class="section">
+    <h2>Example</h2>
+    <p>The following SQL deletes the "ContactName" column from the "Customers" table:</p>
+    <div class="code-box">
+ALTER TABLE Customers
+DROP COLUMN ContactName;
+    </div>
+  </div>
+<div class="section">
+  <h2>Output Before Drop</h2>
+</div>
+<div class="code-box">
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| CustomerID   | int          | YES  |     | NULL    |       |
+| CustomerName | varchar(255) | YES  |     | NULL    |       |
+| ContactName  | varchar(255) | YES  |     | NULL    |       |
+| Address      | varchar(255) | YES  |     | NULL    |       |
+| City         | varchar(255) | YES  |     | NULL    |       |
+| PostalCode   | varchar(255) | YES  |     | NULL    |       |
+| Country      | varchar(255) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+</div>
+<div class="section">
+  <h2>Output After Drop</h2>
+</div>
+<div class="code-box">
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| CustomerID   | int          | YES  |     | NULL    |       |
+| CustomerName | varchar(255) | YES  |     | NULL    |       |
+| Address      | varchar(255) | YES  |     | NULL    |       |
+| City         | varchar(255) | YES  |     | NULL    |       |
+| PostalCode   | varchar(255) | YES  |     | NULL    |       |
+| Country      | varchar(255) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+</div>
+</body>
+</html>

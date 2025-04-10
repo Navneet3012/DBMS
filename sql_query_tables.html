@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL SELECT Statement</title>
+  <style>
+   body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2c2c2c;
+      padding: 30px;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #f39c12;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .code-box {
+      background-color: #1f1f1f;
+      border-left: 5px solid #e67e22;
+      padding: 15px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre;
+      overflow-x: auto;
+      border-radius: 8px;
+      margin: 10px 0;
+      color: #f5f5f5;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    code {
+      background-color: #3b3b3b;
+      color: #f39c12;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    strong {
+      color: #e67e22;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #444;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>SQL SELECT Statement</h1>
+    <p>The <strong>SELECT</strong> statement is used to select data from a database.</p>
+  </div>
+
+  <div class="section">
+    <h2>Syntax</h2>
+    <div class="code-box">
+SELECT column1, column2, ...
+FROM table_name;
+    </div>
+    <p>Here, <code>column1</code>, <code>column2</code>, ... are the field names of the table you want to select data from. The <code>table_name</code> represents the name of the table you want to select data from.</p>
+  </div>
+
+  <div class="section">
+    <h2>Select All Columns</h2>
+    <p>If you want to return all columns, without specifying every column name, you can use the <code>SELECT *</code> syntax:</p>
+    <div class="code-box">
+SELECT * FROM table_name;
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Example</h2>
+    <p>Return data from the <code>Customers</code> table:</p>
+    <div class="code-box">
+SELECT CustomerName, City FROM Customers;
+    </div>
+    <p>This will select the <code>CustomerName</code> and <code>City</code> columns from the <code>Customers</code> table.</p>
+  </div>
+<div class="section">
+  <h2>Output</h2>
+</div>
+<div class="code-box">
++--------------+-----------+
+| customername | city      |
++--------------+-----------+
+| Cardinal     | Stavanger |
+| Cardinal     | Stavanger |
+| John         | Torronto  |
++--------------+-----------+
+</div>
+  <div class="section">
+    <h2>Example: Select All Columns</h2>
+    <p>Return all the columns from the <code>Customers</code> table:</p>
+    <div class="code-box">
+SELECT * FROM Customers;
+    </div>
+    <p>This will select all columns from the <code>Customers</code> table.</p>
+  </div>
+<div class="section">
+  <h2>Output</h2>
+</div>
+<div class="code-box">
++------------+--------------+-----------+-----------+------------+---------+
+| CustomerID | CustomerName | Address   | City      | PostalCode | Country |
++------------+--------------+-----------+-----------+------------+---------+
+|       NULL | Cardinal     | Skagen 21 | Stavanger | 4006       | Norway  |
+|       NULL | Cardinal     | NULL      | Stavanger | NULL       | Norway  |
+|       NULL | John         | 21 Ce     | Torronto  | 4213       | Mexico  |
++------------+--------------+-----------+-----------+------------+---------+
+</div>
+</body>
+</html>
